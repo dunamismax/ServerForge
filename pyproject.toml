@@ -1,0 +1,71 @@
+[project]
+name = "serverforge"
+version = "2.0.0"
+description = "A modern Python CLI tool for installing and managing Minecraft servers"
+readme = "README.md"
+license = {text = "CC BY-NC-SA 4.0"}
+authors = [
+    {name = "dunamismax"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: Other/Proprietary License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment",
+    "Topic :: System :: Systems Administration",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "requests>=2.31.0",
+    "packaging>=23.0",
+    "pyyaml>=6.0",
+    "platformdirs>=3.0.0",
+    "httpx>=0.25.0",
+    "mypy>=1.17.1",
+]
+
+[project.scripts]
+svforge = "svforge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/dunamismax/ServerForge"
+Repository = "https://github.com/dunamismax/ServerForge"
+Issues = "https://github.com/dunamismax/ServerForge/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["svforge"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.8.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
