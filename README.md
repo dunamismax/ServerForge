@@ -1,4 +1,4 @@
-# ServerForge
+# svforge-mc
 
 A modern Python CLI tool for installing and managing Minecraft servers on macOS and Linux.
 
@@ -32,8 +32,8 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 uv python install
 
 # Clone the repository
-git clone https://github.com/dunamismax/ServerForge.git
-cd ServerForge
+git clone https://github.com/dunamismax/svforge-mc.git
+cd svforge-mc
 
 # Install dependencies
 uv sync
@@ -141,7 +141,7 @@ Navigate to the server directory and run:
 ```
 
 ### Server Console Management
-ServerForge uses GNU screen to manage server consoles:
+svforge uses GNU screen to manage server consoles:
 - Detach from console: `Ctrl+A` then `Ctrl+D`
 - Reattach to console: `screen -r svforge-[type]-[version]`
 - List active sessions: `screen -ls`
@@ -176,8 +176,8 @@ uv run svforge config --reset
 ### Setup Development Environment
 ```bash
 # Clone repository
-git clone https://github.com/dunamismax/ServerForge.git
-cd ServerForge
+git clone https://github.com/dunamismax/svforge-mc.git
+cd svforge-mc
 
 # Install with development dependencies
 uv sync --dev
@@ -265,8 +265,8 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/dunamismax/ServerForge/issues)
-- **Repository**: [GitHub Repository](https://github.com/dunamismax/ServerForge)
+- **Issues**: [GitHub Issues](https://github.com/dunamismax/svforge-mc/issues)
+- **Repository**: [GitHub Repository](https://github.com/dunamismax/svforge-mc)
 
 ## Author
 

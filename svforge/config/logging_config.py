@@ -1,5 +1,5 @@
 """
-Logging configuration for ServerForge.
+Logging configuration for svforge.
 
 This module sets up comprehensive logging with file rotation,
 colored console output, and configurable log levels.

@@ -1,5 +1,5 @@
 """
-Custom exception classes for ServerForge.
+Custom exception classes for svforge.
 
 This module defines the exception hierarchy used throughout the application
 for consistent error handling and reporting.
@@ -8,8 +8,8 @@ for consistent error handling and reporting.
 from typing import Optional
 
 
-class ServerForgeError(Exception):
-    """Base exception class for all ServerForge errors."""
+class SvforgeError(Exception):
+    """Base exception class for all svforge errors."""
     
     def __init__(self, message: str, cause: Optional[Exception] = None):
         super().__init__(message)
@@ -22,7 +22,7 @@ class ServerForgeError(Exception):
         return self.message
 
 
-class ValidationError(ServerForgeError):
+class ValidationError(SvforgeError):
     """Raised when input validation fails."""
     pass
 
@@ -32,17 +32,17 @@ class PathValidationError(ValidationError):
     pass
 
 
-class ServerInstallationError(ServerForgeError):
+class ServerInstallationError(SvforgeError):
     """Raised when server installation fails."""
     pass
 
 
-class DownloadError(ServerForgeError):
+class DownloadError(SvforgeError):
     """Raised when file download fails."""
     pass
 
 
-class SystemError(ServerForgeError):
+class SystemError(SvforgeError):
     """Raised when system-level operations fail."""
     pass
 
@@ -52,12 +52,12 @@ class JavaError(SystemError):
     pass
 
 
-class APIError(ServerForgeError):
+class APIError(SvforgeError):
     """Raised when API calls fail."""
     pass
 
 
-class ConfigurationError(ServerForgeError):
+class ConfigurationError(SvforgeError):
     """Raised when configuration is invalid or missing."""
     pass
 

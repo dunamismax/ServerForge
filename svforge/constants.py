@@ -1,5 +1,5 @@
 """
-Constants used throughout ServerForge.
+Constants used throughout svforge.
 
 This module contains all hardcoded values used across the application
 for easy maintenance and configuration.

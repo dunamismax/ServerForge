@@ -1,5 +1,5 @@
 """
-Configuration management for ServerForge.
+Configuration management for svforge.
 
 This module handles configuration loading, validation, and management
 using YAML files and environment variables.
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 class Config:
-    """Configuration manager for ServerForge."""
+    """Configuration manager for svforge."""
     
     def __init__(self) -> None:
         self.app_name = "serverforge"

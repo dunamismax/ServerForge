@@ -1,5 +1,5 @@
 """
-Common validation utilities for ServerForge.
+Common validation utilities for svforge.
 
 This module provides shared validation functions to reduce code duplication
 across the application and enforce consistent validation patterns.

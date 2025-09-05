@@ -1,5 +1,5 @@
 [project]
-name = "serverforge"
+name = "svforge-mc"
 version = "2.0.0"
 description = "A modern Python CLI tool for installing and managing Minecraft servers"
 readme = "README.md"
@@ -37,9 +37,9 @@ dependencies = [
 svforge = "svforge.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/dunamismax/ServerForge"
-Repository = "https://github.com/dunamismax/ServerForge"
-Issues = "https://github.com/dunamismax/ServerForge/issues"
+Homepage = "https://github.com/dunamismax/svforge-mc"
+Repository = "https://github.com/dunamismax/svforge-mc"
+Issues = "https://github.com/dunamismax/svforge-mc/issues"
 
 [build-system]
 requires = ["hatchling"]

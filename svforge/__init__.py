@@ -1,5 +1,5 @@
 """
-ServerForge - A modern Python CLI tool for installing and managing Minecraft servers.
+svforge - A modern Python CLI tool for installing and managing Minecraft servers.
 
 This package provides a comprehensive solution for setting up Minecraft servers
 including Vanilla, Forge, Spigot, Paper, and Leaf variants with automatic

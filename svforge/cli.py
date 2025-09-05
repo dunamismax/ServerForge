@@ -1,5 +1,5 @@
 """
-Command Line Interface for ServerForge.
+Command Line Interface for svforge.
 
 This module provides the main CLI interface using Click framework
 for easy and interactive Minecraft server management.
@@ -52,7 +52,7 @@ async def _install_server_async(server, progress_callback):
 @click.option('--no-color', is_flag=True, help='Disable colored output')
 @click.version_option(version="2.0.0", prog_name="svforge")
 def main(debug: bool, no_color: bool) -> None:
-    """ServerForge - A modern Python CLI tool for installing and managing Minecraft servers."""
+    """svforge - A modern Python CLI tool for installing and managing Minecraft servers."""
     
     # Setup logging
     log_level = "DEBUG" if debug else config.get("logging.level", "INFO")
