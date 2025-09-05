@@ -8,7 +8,7 @@ Minecraft server APIs including Mojang, Paper, Spigot, Forge, and Leaf.
 import asyncio
 import json
 import logging
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 from packaging import version
 import httpx
 import requests

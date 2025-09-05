@@ -8,9 +8,10 @@ A modern Python CLI tool for installing and managing Minecraft servers on macOS 
 - **Version Management**: Support for Minecraft versions 1.7.x through 1.21.x
 - **Automatic Java Management**: Detects and installs required Java versions
 - **Cross-Platform**: Works on macOS and Linux
-- **Fast Downloads**: Async downloads with progress tracking
-- **Smart Caching**: Speeds up repeated installations
-- **Rich CLI**: Beautiful terminal output with progress bars
+- **Fast Downloads**: Asynchronous downloads with progress tracking
+- **Smart Caching**: Speeds up repeated installations (Spigot servers)
+- **Rich CLI**: Clean terminal output with progress bars
+- **Type-Safe**: Fully typed Python codebase with comprehensive validation
 
 ## Quick Start
 
@@ -56,13 +57,13 @@ uv run svforge install paper 1.21.8 --ram 4096 --port 25566
 uv run svforge install paper 1.21.8 --build 450
 ```
 
-### Server Types
+### Supported Server Types
 
-- **vanilla**: Official Minecraft servers
-- **paper**: High-performance server with plugin support
-- **spigot**: Plugin-compatible server (compiles from source)
-- **forge**: Modded server support
-- **leaf**: Paper fork with optimizations
+- **vanilla**: Official Mojang Minecraft servers
+- **paper**: High-performance server with plugin support and optimizations
+- **spigot**: Plugin-compatible server (compiles from BuildTools source)
+- **forge**: Modded server with Minecraft Forge mod loader support
+- **leaf**: Paper fork with additional performance optimizations
 
 ### Available Commands
 
@@ -139,10 +140,12 @@ Navigate to the server directory and run:
 ./start.sh
 ```
 
-### Console Commands
+### Server Console Management
+ServerForge uses GNU screen to manage server consoles:
 - Detach from console: `Ctrl+A` then `Ctrl+D`
 - Reattach to console: `screen -r svforge-[type]-[version]`
 - List active sessions: `screen -ls`
+- Stop server: Use the `stop` command in the server console
 
 ## Configuration
 
@@ -158,9 +161,10 @@ uv run svforge config --reset
 ## Requirements
 
 - **Python**: 3.10 or higher
-- **Operating System**: macOS 10.14+ or Linux
-- **Java**: Automatically installed as needed
-- **Internet**: Required for downloads
+- **Operating System**: macOS 10.14+ or Linux (Windows not currently supported)
+- **Java**: Automatically installed as needed (Java 8, 11, 17, or 21)
+- **Internet Connection**: Required for downloading server files and version information
+- **GNU screen**: For console management (typically pre-installed on Linux/macOS)
 
 ### Java Version Requirements
 - Minecraft 1.7.x - 1.16.x: Java 8
@@ -194,6 +198,8 @@ uv run mypy svforge
 svforge/
 ├── __init__.py          # Package initialization
 ├── cli.py               # Main CLI interface
+├── constants.py         # Application constants
+├── exceptions.py        # Custom exception classes
 ├── config/              # Configuration management
 │   ├── __init__.py
 │   ├── settings.py      # Settings and config loading
@@ -209,12 +215,15 @@ svforge/
 └── utils/               # Utility modules
     ├── __init__.py
     ├── api.py           # API clients and downloaders
-    └── system.py        # System utilities and Java management
+    ├── base_api.py      # Base API classes
+    ├── system.py        # System utilities and Java management
+    └── validation.py    # Input validation utilities
 ```
 
 ## Troubleshooting
 
 ### Java Not Found
+Check Java installations and install manually if needed:
 ```bash
 # Check Java installations
 uv run svforge system
@@ -225,6 +234,7 @@ uv run svforge system
 ```
 
 ### Permission Errors
+Resolve file permission issues:
 ```bash
 # Make start script executable
 chmod +x /path/to/server/start.sh
@@ -233,13 +243,18 @@ chmod +x /path/to/server/start.sh
 sudo chown -R $USER:$USER ~/minecraft_servers/
 ```
 
-### Network Issues
+### Network Connectivity Issues
+Test network connectivity to required services:
 ```bash
-# Test connectivity
+# Test Mojang API connectivity
 curl -I https://launchermeta.mojang.com/mc/game/version_manifest.json
+
+# Test Paper API connectivity
+curl -I https://api.papermc.io/v2/projects/paper
 ```
 
 ### Debug Mode
+Enable debug logging for troubleshooting:
 ```bash
 uv run svforge --debug install paper 1.21.8
 ```

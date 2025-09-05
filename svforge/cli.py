@@ -189,7 +189,7 @@ def install(
         
         if success:
             console.print(Panel(
-                f"[green]✓ Successfully installed {server_type.title()} server {validated_version}![/green]\n\n"
+                f"[green]Successfully installed {server_type.title()} server {validated_version}![/green]\n\n"
                 f"Server directory: {server.install_directory}\n"
                 f"To start the server, run: ./start.sh\n"
                 f"Server will be available on port {validated_port}",
@@ -197,12 +197,12 @@ def install(
                 border_style="green"
             ))
         else:
-            console.print("[red]✗ Server installation failed. Check logs for details.[/red]")
+            console.print("[red]Server installation failed. Check logs for details.[/red]")
             sys.exit(1)
             
     except Exception as e:
         logger.error(f"Installation failed: {e}")
-        console.print(f"[red]✗ Installation failed: {e}[/red]")
+        console.print(f"[red]Installation failed: {e}[/red]")
         sys.exit(1)
 
 
@@ -246,7 +246,7 @@ def versions(server_type: str) -> None:
             
     except Exception as e:
         logger.error(f"Failed to fetch versions: {e}")
-        console.print(f"[red]✗ Failed to fetch versions: {e}[/red]")
+        console.print(f"[red]Failed to fetch versions: {e}[/red]")
         sys.exit(1)
 
 
@@ -320,7 +320,7 @@ def system() -> None:
     sys_table.add_row("Operating System", f"{sys_info['system']} {sys_info['release']}")
     sys_table.add_row("Architecture", sys_info["machine"])
     sys_table.add_row("Python Version", f"{sys.version.split()[0]}")
-    sys_table.add_row("Supported Platform", "✓ Yes" if SystemInfo.is_supported_platform() else "✗ No")
+    sys_table.add_row("Supported Platform", "Yes" if SystemInfo.is_supported_platform() else "No")
     
     console.print(sys_table)
     console.print()
