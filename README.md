@@ -88,17 +88,20 @@ uv run svforge install paper 1.21.8 --build 450
 ## Examples
 
 ### List Available Versions
+
 ```bash
 uv run svforge versions paper
 uv run svforge versions vanilla
 ```
 
 ### Check System Compatibility
+
 ```bash
 uv run svforge system
 ```
 
 ### Install Different Server Types
+
 ```bash
 # Vanilla server
 uv run svforge install vanilla 1.21.8
@@ -117,6 +120,7 @@ uv run svforge install leaf 1.21.8
 ```
 
 ### Manage Installed Servers
+
 ```bash
 # List installed servers
 uv run svforge list
@@ -129,19 +133,24 @@ cd ~/minecraft_servers/paper-1.21.8
 ## Server Management
 
 After installation, each server includes:
+
 - Server JAR file
 - Startup script (`start.sh`)
 - Basic configuration files
 - EULA acceptance
 
 ### Starting Servers
+
 Navigate to the server directory and run:
+
 ```bash
 ./start.sh
 ```
 
 ### Server Console Management
+
 svforge uses GNU screen to manage server consoles:
+
 - Detach from console: `Ctrl+A` then `Ctrl+D`
 - Reattach to console: `screen -r svforge-[type]-[version]`
 - List active sessions: `screen -ls`
@@ -150,10 +159,12 @@ svforge uses GNU screen to manage server consoles:
 ## Configuration
 
 Configuration is stored in YAML format:
+
 - **macOS**: `~/Library/Application Support/serverforge/config.yaml`
 - **Linux**: `~/.config/serverforge/config.yaml`
 
 ### Reset Configuration
+
 ```bash
 uv run svforge config --reset
 ```
@@ -167,6 +178,7 @@ uv run svforge config --reset
 - **GNU screen**: For console management (typically pre-installed on Linux/macOS)
 
 ### Java Version Requirements
+
 - Minecraft 1.7.x - 1.16.x: Java 8
 - Minecraft 1.17.x - 1.20.4: Java 17
 - Minecraft 1.20.5+: Java 21
@@ -174,6 +186,7 @@ uv run svforge config --reset
 ## Development
 
 ### Setup Development Environment
+
 ```bash
 # Clone repository
 git clone https://github.com/dunamismax/svforge-mc.git
@@ -194,6 +207,7 @@ uv run mypy svforge
 ```
 
 ### Project Structure
+
 ```
 svforge/
 ├── __init__.py          # Package initialization
@@ -223,7 +237,9 @@ svforge/
 ## Troubleshooting
 
 ### Java Not Found
+
 Check Java installations and install manually if needed:
+
 ```bash
 # Check Java installations
 uv run svforge system
@@ -234,7 +250,9 @@ uv run svforge system
 ```
 
 ### Permission Errors
+
 Resolve file permission issues:
+
 ```bash
 # Make start script executable
 chmod +x /path/to/server/start.sh
@@ -244,7 +262,9 @@ sudo chown -R $USER:$USER ~/minecraft_servers/
 ```
 
 ### Network Connectivity Issues
+
 Test network connectivity to required services:
+
 ```bash
 # Test Mojang API connectivity
 curl -I https://launchermeta.mojang.com/mc/game/version_manifest.json
@@ -254,7 +274,9 @@ curl -I https://api.papermc.io/v2/projects/paper
 ```
 
 ### Debug Mode
+
 Enable debug logging for troubleshooting:
+
 ```bash
 uv run svforge --debug install paper 1.21.8
 ```
